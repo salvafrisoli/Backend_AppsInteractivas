@@ -17,8 +17,6 @@ public class auto {
     private Integer id;
     private String name;
     @ManyToMany
-    @JoinTable(name="duenio_auto",
-    joinColumns = @JoinColumn(name = "auto_id"),
-    inverseJoinColumns = @JoinColumn(name = "duenio_id"))
+    @JoinTable(name="duenio_auto", joinColumns = @JoinColumn(name = "auto_id"), inverseJoinColumns = @JoinColumn(name = "duenio_id"))
     private List<duenio> duenios;
 }

@@ -29,13 +29,12 @@ public class autoService {
         ar.save(a);
         return ResponseEntity.status(CREATED).build();
     }
-//    public ResponseEntity update(Integer id, auto a) {
-//        auto au = ar.findById(id).get();
-//        au.setName(a.getName());
-//        au.setDueno(a.getDueno());
-//        ar.save(au);
-//        return ResponseEntity.status(OK).build();
-//    }
+    public ResponseEntity update(Integer id, auto a) {
+        auto au = ar.findById(id).get();
+        au.setName(a.getName());
+        ar.save(au);
+        return ResponseEntity.status(OK).build();
+    }
 
     public ResponseEntity delete(Integer id) {
         ar.deleteById(id);

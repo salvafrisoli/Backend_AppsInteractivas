@@ -25,10 +25,10 @@ public class autoController {
         return as.add(a);
     }
 
-//    @PostMapping("/{id}/update")
-//    public ResponseEntity update(@PathVariable Integer id,@RequestBody auto a) {
-//        return as.update(id,a);
-//    }
+    @PostMapping("/{id}/update")
+    public ResponseEntity update(@PathVariable Integer id,@RequestBody auto a) {
+        return as.update(id,a);
+    }
 
     @PostMapping("/{id}/delete")
     public ResponseEntity delete(@PathVariable Integer id) {

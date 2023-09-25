@@ -20,6 +20,6 @@ public class duenio {
     private Integer id;
     private String name;
     @ManyToMany(mappedBy = "duenios")
-//    @JsonIgnore
+    @JsonIgnore
     private List<auto> autos;
 }

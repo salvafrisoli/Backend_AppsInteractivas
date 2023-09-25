@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.model.auto;
 import com.example.demo.model.duenio;
+import com.example.demo.model.duenioDTO;
 import com.example.demo.service.autoService;
 import com.example.demo.service.duenioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,15 +11,16 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("/duenio")
+
 @RestController
+@RequestMapping("/duenio")
 public class duenioController {
 
     @Autowired
     private duenioService ds;
 
     @GetMapping("")
-    public List<duenio> getAll() {
+    public List<duenioDTO> getAll() {
         return ds.getAll();
     }
 
