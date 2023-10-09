@@ -12,5 +12,8 @@ import java.util.List;
 public class duenioDTO {
     private Integer id;
     private String name;
+    private Integer age;
+    private String birthday;
+    private String country;
     private List<autoDTO> autos;
 }

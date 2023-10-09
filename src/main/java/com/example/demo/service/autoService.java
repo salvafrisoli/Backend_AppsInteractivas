@@ -32,6 +32,8 @@ public class autoService {
     public ResponseEntity update(Integer id, auto a) {
         auto au = ar.findById(id).get();
         au.setName(a.getName());
+        au.setModel(a.getModel());
+        au.setDate_fab(a.getDate_fab());
         ar.save(au);
         return ResponseEntity.status(OK).build();
     }

@@ -19,6 +19,9 @@ public class duenio {
     @Id
     private Integer id;
     private String name;
+    private Integer age;
+    private String birthday;
+    private String country;
     @ManyToMany(mappedBy = "duenios")
     @JsonIgnore
     private List<auto> autos;

@@ -38,6 +38,10 @@ public class duenioService {
             duenioDTO duenio = new duenioDTO();
             duenio.setId(dueno.getId());
             duenio.setName(dueno.getName());
+            duenio.setCountry(dueno.getCountry());
+            duenio.setBirthday(dueno.getBirthday());
+            duenio.setAge(dueno.getAge());
+
             duenio.setAutos(getDueniosAutos(dueno.getId()));
             duenios.add(duenio);
         }
@@ -55,6 +59,9 @@ public class duenioService {
     public ResponseEntity update(Integer id, duenio d) {
         duenio du = dr.findById(id).get();
         du.setName(d.getName());
+        du.setCountry(d.getCountry());
+        du.setBirthday(d.getBirthday());
+        du.setAge(d.getAge());
         dr.save(du);
         return ResponseEntity.status(OK).build();
     }
@@ -68,7 +75,7 @@ public class duenioService {
         List<autoDTO> autoList = new ArrayList<>();
         List<Integer> duenioAutos = dr.getDueniosAutos(duenioId);
         for(int x = 0; x < duenioAutos.size(); x++) {
-            autoList.add(mm.map(ar.findById(x).get(), autoDTO.class));
+            autoList.add(mm.map(ar.findById(duenioAutos.get(x)).get(), autoDTO.class));
         }
         return autoList;
     }

@@ -10,4 +10,6 @@ import lombok.NoArgsConstructor;
 public class autoDTO {
     private Integer id;
     private String name;
+    private String date_fab;
+    private String model;
 }
