@@ -57,18 +57,28 @@ public class duenioService {
         }
     }
     public ResponseEntity update(Integer id, duenio d) {
-        duenio du = dr.findById(id).get();
-        du.setName(d.getName());
-        du.setCountry(d.getCountry());
-        du.setBirthday(d.getBirthday());
-        du.setAge(d.getAge());
-        dr.save(du);
-        return ResponseEntity.status(OK).build();
+        try {
+            duenio du = dr.findById(id).get();
+            du.setName(d.getName());
+            du.setCountry(d.getCountry());
+            du.setBirthday(d.getBirthday());
+            du.setAge(d.getAge());
+            dr.save(du);
+            return ResponseEntity.status(OK).build();
+        } catch (Exception e) {
+            return ResponseEntity.status(INTERNAL_SERVER_ERROR).build();
+        }
+
     }
 
     public ResponseEntity delete(Integer id) {
-        dr.deleteById(id);
-        return ResponseEntity.status(OK).build();
+        try {
+
+            dr.deleteById(id);
+            return ResponseEntity.status(OK).build();
+        } catch (Exception e) {
+            return ResponseEntity.status(INTERNAL_SERVER_ERROR).build();
+        }
     }
 
     public List<autoDTO> getDueniosAutos(Integer duenioId){
