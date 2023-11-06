@@ -9,8 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static org.springframework.http.HttpStatus.CREATED;
-import static org.springframework.http.HttpStatus.OK;
+import static org.springframework.http.HttpStatus.*;
 
 @Service
 public class autoService {
@@ -26,21 +25,36 @@ public class autoService {
     }
 
     public ResponseEntity add(auto a){
-        ar.save(a);
-        return ResponseEntity.status(CREATED).build();
+        try {
+            ar.save(a);
+            return ResponseEntity.status(CREATED).build();
+        } catch (Exception e) {
+            return ResponseEntity.status(INTERNAL_SERVER_ERROR).build();
+        }
+
     }
     public ResponseEntity update(Integer id, auto a) {
-        auto au = ar.findById(id).get();
-        au.setName(a.getName());
-        au.setModel(a.getModel());
-        au.setDate_fab(a.getDate_fab());
-        ar.save(au);
-        return ResponseEntity.status(OK).build();
+        try {
+            auto au = ar.findById(id).get();
+            au.setName(a.getName());
+            au.setModel(a.getModel());
+            au.setDate_fab(a.getDate_fab());
+            ar.save(au);
+            return ResponseEntity.status(OK).build();
+
+        } catch (Exception e) {
+            return ResponseEntity.status(INTERNAL_SERVER_ERROR).build();
+        }
     }
 
     public ResponseEntity delete(Integer id) {
-        ar.deleteById(id);
-        return ResponseEntity.status(OK).build();
+        try {
+            ar.deleteById(id);
+            return ResponseEntity.status(OK).build();
+        } catch (Exception e) {
+            return ResponseEntity.status(INTERNAL_SERVER_ERROR).build();
+        }
+
     }
 
 }
