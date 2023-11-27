@@ -24,6 +24,7 @@ public class autoService {
         return ar.findAll();
     }
 
+
     public ResponseEntity add(auto a){
         try {
             ar.save(a);
@@ -46,6 +47,7 @@ public class autoService {
             return ResponseEntity.status(INTERNAL_SERVER_ERROR).build();
         }
     }
+
 
     public ResponseEntity delete(Integer id) {
         try {

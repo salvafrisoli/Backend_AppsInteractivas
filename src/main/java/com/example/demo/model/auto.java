@@ -14,7 +14,7 @@ import java.util.List;
 @Entity
 public class auto {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Integer id;
     private String name;
     private String date_fab;
